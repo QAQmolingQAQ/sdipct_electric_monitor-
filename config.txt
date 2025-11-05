@@ -1,0 +1,16 @@
+# 电表监控系统配置文件
+#循环时间min
+MONITOR_INTERVAL=10
+#低电量提醒值
+LOW_ENERGY_THRESHOLD=10.0
+
+CURL_COMMAND=curl "https://sdxt.sdipct.edu.cn/kddz/electricmeterpost/electricMeterQuery" --data-raw "****"
+
+SMTP_SERVER=smtp.qq.com
+SMTP_PORT=587
+EMAIL_ACCOUNT=************@qq.com
+EMAIL_AUTH_CODE=****************
+EMAIL_RECEIVER=**********@qq.com,*******@qq.com
+# 不清楚为什么outlook邮箱无法使用，不管了，先做qq邮箱不想优化了。
+
+DATABASE_PATH=electric_data.db

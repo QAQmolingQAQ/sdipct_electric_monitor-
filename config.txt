@@ -4,7 +4,7 @@ MONITOR_INTERVAL=10
 #低电量提醒值
 LOW_ENERGY_THRESHOLD=10.0
 #选择需要的curl参数
-CURL_COMMAND=curl "https://sdxt.sdipct.edu.cn/kddz/electricmeterpost/electricMeterQuery" --data-raw "****"
+CURL_COMMAND=curl "************************************" --data-raw "****"
 #邮件参数设置
 SMTP_SERVER=smtp.qq.com
 SMTP_PORT=587
@@ -15,3 +15,4 @@ EMAIL_RECEIVERS=**********@qq.com,*******@qq.com
 DATABASE_PATH=electric_data.db
 # 网页输出设置
 WEB_PATH=web
+

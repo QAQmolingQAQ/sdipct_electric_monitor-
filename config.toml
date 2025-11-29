@@ -1,0 +1,106 @@
+# 电表查询API地址
+url = "https://sdxt.sdipct.edu.cn/kddz/electricmeterpost/electricMeterQuery"
+
+# 电表配置列表 - 可以配置多个电表
+[[meters]]
+# 是否启用此电表监控
+enabled = true
+# 电表名称（用于日志和通知显示）
+name = "生活用电"
+# 电表用户UID（从电表查询页面获取）
+electric_user_uid = "YOUR_METER_UID"
+# 用电量修正值（单位：kWh），用于校准实际用电量
+consumption_correction = 0.0
+# 是否启用数据库存储
+# 启用后会将电表数据保存到SQLite数据库
+db_enable = true
+# 数据库文件名
+db_name = "electric_data.db"
+# 低电量警告阈值（单位：kWh）
+# 当剩余电量低于此值时触发警告通知
+low_energy_threshold = 10.0
+
+# 电表配置列表 - 第二电表示例
+[[meters]]
+# 是否启用此电表监控
+enabled = true
+# 电表名称（用于日志和通知显示）
+name = "空调用电"
+# 电表用户UID（从电表查询页面获取）
+electric_user_uid = "YOUR_METER_UID"
+# 用电量修正值（单位：kWh），用于校准实际用电量
+consumption_correction = 0.0
+# 是否启用数据库存储
+# 启用后会将电表数据保存到SQLite数据库
+db_enable = true
+# 数据库文件名
+db_name = "electric_ac_data.db"
+# 低电量警告阈值（单位：kWh）
+# 当剩余电量低于此值时触发警告通知
+low_energy_threshold = 10.0
+
+# 监控循环配置
+[loop_config]
+# 是否启用定时监控循环
+enabled = true
+# 监控间隔时间（单位：分钟）
+interval_minutes = 10
+
+# 重试配置
+[retry_config]
+# 最大重试次数（当API请求失败时）
+max_retry_count = 3
+
+# Web服务器配置
+[web_config]
+# 是否启用Web页面生成
+enable_generate_web = true
+# 是否启用HTTP服务器
+enable_http_server = true
+# HTTP服务器端口号
+http_port = 8088
+# 是否输出静态Web文件
+enable_output_web = false
+# 静态Web文件输出路径
+output_web_path = "web"
+
+# 警告配置
+[warning_config]
+# 是否启用警告功能
+enabled = true
+# 最大警告次数（0表示无限制）
+max_warning = 0
+
+# 邮件通知配置
+[email_config]
+# 是否启用邮件通知
+enabled = false
+# SMTP服务器地址
+smtp_server = "smtp.your-email-provider.com"
+# SMTP服务器端口
+smtp_port = 587
+# 发件人邮箱账号
+email_account = "your-email@example.com"
+# 邮箱授权码（不是登录密码）
+email_auth_code = "YOUR_EMAIL_AUTH_CODE"
+# 收件人邮箱列表（低电量警告接收者）
+email_receivers = [  "receiver@example.com",]
+# 错误邮件接收地址（系统错误通知）
+receive_error_email = "error-receiver@example.com"
+
+# QQ机器人配置（基于Napcat）
+[napcat_config]
+# 是否启用QQ机器人
+enabled = false
+# Napcat API地址
+api_url = "http://localhost"
+# Napcat API端口
+api_port = 6090
+# Napcat API令牌
+token = "YOUR_NAPCAT_TOKEN"
+# QQ群号（用于发送低电量警告）
+qq_group_id = 123456789
+# 错误通知QQ号（系统错误通知）
+receive_error_qq_id = 987654321
+# 关键词列表（用于监控QQ群消息）
+query_keywords = [ "电量", "电费", "电表", "剩余电量", "电费查询",]
